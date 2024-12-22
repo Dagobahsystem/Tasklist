@@ -1,0 +1,97 @@
+body {
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e7a977;
+}
+
+.flex-container {
+  width: 100%;
+  max-width: 650px; /* Optional: Set a max-width for the container */
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  background-color: #f0f0f0; /* Optional: Set a background color */
+  padding: 20px; /* Optional: Add some padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.flex-item {
+  margin: 15px 0;
+}
+
+.left {
+  padding-right: 20px;
+}
+
+/* Optional: Add some styles to the input */
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.addTaskBtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align: right;
+}
+
+.addTaskBtn:hover {
+  background-color: #45a049;
+}
+
+/* Optional: Add some styles to the task list */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #4caf50; /* Change the color of the checkbox */
+  margin-right: 10px; /* Add some space between the checkbox and the task text */
+}
+
+.task-list-li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.delete-button {
+  margin-left: auto; /* Push the delete button to the right */
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
