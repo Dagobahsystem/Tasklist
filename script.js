@@ -33,8 +33,7 @@ function displayTask() {
     return;
   }
 
-  //   Create a list item
-  // Clear the current list
+  // Clear the ul element before displaying the tasks
   taskLocation.innerHTML = "";
 
   // Loop through the task list and display the tasks
@@ -46,6 +45,9 @@ function displayTask() {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.className = "task-checkbox";
+
+    // Call toggleStrikeThrough for the checkbox
+    toggleStrikeThrough(checkbox);
 
     // Create a text node for the task
     const taskText = document.createTextNode(taskList[i].task);
@@ -73,3 +75,25 @@ function deleteTask(index) {
   taskList.splice(index, 1);
   displayTask();
 }
+
+// Function to toggle the strike-through effect
+function toggleStrikeThrough(checkbox) {
+  checkbox.addEventListener("change", function (event) {
+    const listItem = event.target.parentElement;
+
+    if (event.target.checked) {
+      listItem.style.textDecoration = "line-through";
+    } else {
+      listItem.style.textDecoration = "none";
+    }
+  });
+}
+
+// Event listener for checkbox change event to toggle strike-through effect
+document.addEventListener("DOMContentLoaded", function () {
+  const checkboxes = document.querySelectorAll("input[type='checkbox']");
+
+  for (let i = 0; i < checkboxes.length; i++) {
+    toggleStrikeThrough(checkboxes[i]);
+  }
+});
