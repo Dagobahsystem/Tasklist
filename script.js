@@ -76,15 +76,30 @@ function deleteTask(index) {
   displayTask();
 }
 
-// Function to toggle the strike-through effect
+// Function to toggle the strike-through effect on the text node beside the checkbox
 function toggleStrikeThrough(checkbox) {
   checkbox.addEventListener("change", function (event) {
     const listItem = event.target.parentElement;
 
-    if (event.target.checked) {
-      listItem.style.textDecoration = "line-through";
-    } else {
-      listItem.style.textDecoration = "none";
+    // Find the text node beside the checkbox
+    const textNode = Array.from(listItem.childNodes).find(
+      (node) => node.nodeType === Node.TEXT_NODE
+    );
+
+    if (textNode) {
+      if (event.target.checked) {
+        // Wrap the text node in a span with strike-through styling
+        const span = document.createElement("span");
+        span.style.textDecoration = "line-through";
+        span.textContent = textNode.nodeValue.trim();
+        listItem.replaceChild(span, textNode);
+      } else {
+        // Restore the original text node when unchecked
+        const originalText = document.createTextNode(
+          listItem.querySelector("span").textContent
+        );
+        listItem.replaceChild(originalText, listItem.querySelector("span"));
+      }
     }
   });
 }
